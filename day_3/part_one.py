@@ -18,7 +18,8 @@ for i in range(number_of_spirals):
             step_distance = int(len(number_range)/4)
             cross_numbers = [number_range[step+(i-1)] for step in range(0, len(number_range), step_distance)]
             distance_to_cross_numbers = [int(math.fabs(cross_number-number_to_find_distance_to)) for cross_number in cross_numbers]
-            minimum_cross_distance = min(distance_to_cross_numbers)
+            cross_distance = min(distance_to_cross_numbers)
 
-            print(minimum_distance + minimum_cross_distance)
+            print(minimum_distance + cross_distance)
+            quit()
 
