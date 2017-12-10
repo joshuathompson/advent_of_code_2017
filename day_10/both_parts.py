@@ -34,13 +34,5 @@ print(knotted_lengths[0] * knotted_lengths[1])
 
 ascii_lengths = [ord(c) for c in open("./input.txt").read().rstrip()] + [17, 31, 73, 47, 23]
 sparse_hash = knot_lengths(ascii_lengths, 64)
-
 sparse_hash_groups = [sparse_hash[((i)*16):((i+1)*16)] for i in range(16)]
-dense_hash = []
-
-result = ''
-for g in sparse_hash_groups:
-    n = reduce(operator.xor, g)
-    result += format(n, 'x')
-
-print(result)
+print(''.join([format(reduce(operator.xor, g), 'x') for g in sparse_hash_groups]))
